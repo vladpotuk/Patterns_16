@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-public class ConcreteColleague : Colleague
+﻿public class ConcreteColleague : Colleague
 {
     public ConcreteColleague(IMediator mediator, string name) : base(mediator, name)
     {
