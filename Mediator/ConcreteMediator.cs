@@ -1,4 +1,6 @@
-﻿public class ConcreteMediator : IMediator
+﻿using System;
+
+public class ConcreteMediator : IMediator<ConcreteColleague>
 {
     private ConcreteColleague colleague1;
     private ConcreteColleague colleague2;
@@ -9,15 +11,18 @@
         this.colleague2 = colleague2;
     }
 
-    public void SendMessage(string message, Colleague sender)
+    public void SendMessage(string message, ConcreteColleague colleague)
     {
-        if (sender == colleague1)
+        switch (colleague)
         {
-            colleague2.ReceiveMessage(message);
-        }
-        else if (sender == colleague2)
-        {
-            colleague1.ReceiveMessage(message);
+            case ConcreteColleague c1 when c1 == colleague1:
+                colleague2.ReceiveMessage(message);
+                break;
+            case ConcreteColleague c2 when c2 == colleague2:
+                colleague1.ReceiveMessage(message);
+                break;
+            default:
+                throw new ArgumentException("Невідомий колега");
         }
     }
 }

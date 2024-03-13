@@ -1,17 +1,18 @@
-﻿public class ConcreteColleague : Colleague
+﻿using System;
+
+public class ConcreteColleague : Colleague<ConcreteColleague>
 {
-    public ConcreteColleague(IMediator mediator, string name) : base(mediator, name)
+    public ConcreteColleague(IMediator<ConcreteColleague> mediator, string name) : base(mediator, name)
     {
     }
 
     public override void ReceiveMessage(string message)
     {
-        Console.WriteLine($"{name} отримав(ла) повідомлення: {message}");
+        Console.WriteLine("{0} отримав повідомлення: {1}", name, message);
     }
 
     public void SendMessage(string message)
     {
-        Console.WriteLine($"{name} відправив(ла) повідомлення: {message}");
         mediator.SendMessage(message, this);
     }
 }

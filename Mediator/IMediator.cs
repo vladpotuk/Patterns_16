@@ -1,4 +1,4 @@
-﻿public interface IMediator
+﻿public interface IMediator<T>
 {
-    void SendMessage(string message, Colleague sender);
+    void SendMessage(string message, T colleague);
 }
