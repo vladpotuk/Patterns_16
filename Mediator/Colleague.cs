@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 public abstract class Colleague<T>
 {
     protected IMediator<T> mediator;
@@ -12,5 +11,5 @@ public abstract class Colleague<T>
         this.name = name;
     }
 
-    public abstract void ReceiveMessage(string message);
+    public abstract void ReceiveMessage<TMessage>(TMessage message);
 }

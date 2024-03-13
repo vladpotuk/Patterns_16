@@ -6,12 +6,12 @@ public class ConcreteColleague : Colleague<ConcreteColleague>
     {
     }
 
-    public override void ReceiveMessage(string message)
+    public override void ReceiveMessage<TMessage>(TMessage message)
     {
         Console.WriteLine("{0} отримав повідомлення: {1}", name, message);
     }
 
-    public void SendMessage(string message)
+    public void SendMessage<TMessage>(TMessage message)
     {
         mediator.SendMessage(message, this);
     }

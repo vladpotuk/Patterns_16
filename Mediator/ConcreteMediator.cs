@@ -11,7 +11,7 @@ public class ConcreteMediator : IMediator<ConcreteColleague>
         this.colleague2 = colleague2;
     }
 
-    public void SendMessage(string message, ConcreteColleague colleague)
+    public void SendMessage<TMessage>(TMessage message, ConcreteColleague colleague)
     {
         switch (colleague)
         {
